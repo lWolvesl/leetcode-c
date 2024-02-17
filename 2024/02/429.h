@@ -51,7 +51,32 @@ int top(struct queue Q) {
 }
 
 int **levelOrder(struct Node *root, int *returnSize, int **returnColumnSizes) {
+    int ** ans = (int **)malloc(sizeof(int *) * 1000);
+    *returnColumnSizes = (int *)malloc(sizeof(int) * 1000);
+    if (!root) {
+        *returnSize = 0;
+        return ans;
+    }
+    struct Node ** queue = (struct Node **)malloc(sizeof(struct Node *) * 10000);
+    int head = 0, tail = 0;
+    int level = 0;
+    queue[tail++] = root;
 
+    while (head != tail) {
+        int cnt = tail - head;
+        ans[level] = (int *)malloc(sizeof(int) * cnt);
+        for (int i = 0; i < cnt; ++i) {
+            struct Node * cur = queue[head++];
+            ans[level][i] = cur->val;
+            for (int j = 0; j < cur->numChildren; j++) {
+                queue[tail++] = cur->children[j];
+            }
+        }
+        (*returnColumnSizes)[level++] = cnt;
+    }
+    *returnSize = level;
+    free(queue);
+    return ans;
 }
 
 #endif //LEETCODE_C_429_H
