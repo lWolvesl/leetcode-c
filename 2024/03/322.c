@@ -31,7 +31,7 @@ int coinChange(int *coins, int coinsSize, int amount)
     return dp[amount] > amount ? -1 : dp[amount];
 }
 
-int main()
+void run()
 {
     int a1[3] = {1, 2, 5};
     int a2[4] = {3, 7, 405, 436};
