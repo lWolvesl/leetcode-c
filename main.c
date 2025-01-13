@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "2024/06/520.c"
+#include "2025/01/2270.h"
 
 int main() {
-    printf("%d\n", run());
+    run();
     return 0;
 }
