@@ -5,6 +5,10 @@
 #ifndef LEETCODE_C_40_H
 #define LEETCODE_C_40_H
 
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
 int** ans;
 int* ansColumnSizes;
 int ansSize;
